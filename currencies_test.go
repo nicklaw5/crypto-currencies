@@ -9,6 +9,23 @@ var coins = map[string]string{
 	"LTC": "Litecoin",
 }
 
+func TestGetAllSymbols(t *testing.T) {
+	t.Parallel()
+
+	currencies := make(map[string]string, len(coins))
+	for k, v := range coins {
+		currencies[k] = v
+	}
+
+	for _, abbr := range GetAllSymbols() {
+		delete(currencies, abbr)
+	}
+
+	if len(currencies) != 0 {
+		t.Errorf("Expected currencies to be an empty map, but got %v", currencies)
+	}
+}
+
 func TestGetCurrencyBySymbol(t *testing.T) {
 	t.Parallel()
 

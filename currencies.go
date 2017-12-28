@@ -20,7 +20,7 @@ func GetAllSymbols() []string {
 	}
 }
 
-// GetAllCurrencies ...
+// GetAllCurrencies returns a map of currency names and their abbreviations.
 func GetAllCurrencies() map[string]string {
 	return map[string]string{
 		BCH: "Bitcoin Cash",
